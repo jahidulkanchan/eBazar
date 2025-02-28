@@ -1,0 +1,16 @@
+@import "tailwindcss";
+
+@layer utilities {
+  .text-primary{
+    color: #00d057;
+  }
+  .bg-primary{
+    background-color: #00d057;
+  }
+  .text-secondary{
+    color: #FFB700;
+  }
+  .bg-secondary{
+    background-color: #FFB700;
+  }
+}
