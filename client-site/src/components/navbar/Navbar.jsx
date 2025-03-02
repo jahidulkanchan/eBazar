@@ -12,7 +12,7 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [show, setShow] = useState(true);
 
-  console.log(isHidden);
+  console.log(isHidden);      
 
   let lastScrollY = 0;
   useEffect(() => {
@@ -42,7 +42,7 @@ const Navbar = () => {
                 src="/logo.png"
                 alt="Logo"
               />
-            </Link>
+            </Link>  
           </div>
           {/* our menu items */}
           <div
