@@ -1,11 +1,12 @@
 import { useEffect, useState } from "react";
-import { FaRegHeart, FaUser } from "react-icons/fa";
+import { FaRegHeart, FaUser, FaWhatsapp } from "react-icons/fa";
 import { FaBarsStaggered, FaRegCircleUser } from "react-icons/fa6";
 import { Link } from "react-router-dom";
 import SearchBar from "../../shared/SearchBar";
 import { RxCross2 } from "react-icons/rx";
 import { LiaShoppingBagSolid } from "react-icons/lia";
 import { IoMdHeartEmpty } from "react-icons/io";
+import { MdPhone } from "react-icons/md";
 
 const Navbar = () => {
   const [isHidden, setIsHidden] = useState(true);
@@ -77,15 +78,23 @@ const Navbar = () => {
               </li>
             </ul>
           </div>
-          <div className="user-info hidden md:block">
+          <div className="user-info hidden md:flex items-center gap-5">
+              <Link to="https://web.whatsapp.com" className="text-2xl text-green-400 transition-transform duration-500 hover:rotate-y-180">
+                <FaWhatsapp />
+              </Link>
             <Link
               to="/signin"
-              className="px-3 bg-white rounded flex items-center gap-1.5 border-amber-400 py-1 border"
-            >
-              <FaUser className="text-amber-400" /> <span>Sign In</span>
+              className="px-3
+              relative bg-white group overflow-hidden rounded flex items-center gap-1.5 border-amber-400 py-1 border"
+            > 
+              <span className="absolute w-full h-full left-0 top-0 scale-0 group-hover:scale-100 duration-200 bg-[#fcfcfc] -z-0"></span>
+              <FaUser className="text-amber-400 z-[2]" /> <span className="z-[2]">Sign In</span>
             </Link>
           </div>
           <div className="flex md:hidden items-center gap-4">
+          <Link to="https://web.whatsapp.com" className="text-2xl text-green-400 transition-transform duration-500 hover:rotate-y-180">
+                <FaWhatsapp />
+              </Link>
           <div
             className="relative cursor-pointer md:hidden"
             onClick={() => {
@@ -93,7 +102,7 @@ const Navbar = () => {
               setIsHidden(true)
             }}
           >
-            <span className="text-2xl text-amber-500">
+            <span className="text-2xl text-amber-400">
               <FaRegCircleUser />
             </span>
             <div
@@ -121,16 +130,19 @@ const Navbar = () => {
             </div>
           </div>
         </div>
-        <div className="min-h-[50px] container mx-auto px-1.5 md:px-5 flex justify-between items-center bg-amber-400">
-          <div className="hidden md:block"></div>
-          <SearchBar />
-          <div className="shopping-info flex items-center gap-2 md:gap-3">
-            <Link to="/" className="text-2xl mt-1">
-              <IoMdHeartEmpty />
-            </Link>
-            <Link to="/" className="text-2xl">
-              <LiaShoppingBagSolid />
-            </Link>
+        {/* ============ sub navbar =========== */}
+        <div className="bg-amber-400">
+          <div className="min-h-[50px] container mx-auto px-1.5 md:px-5 flex justify-between items-center">
+            <div className="hidden md:flex bg-white px-3 py-1 rounded-sm font-medium items-center gap-0.5 md:min-w-[70px]"><MdPhone className="text-xl mt-0.5" /><span>+880 234 43543</span></div>
+            <SearchBar />
+            <div className="shopping-info bg-white rounded-t-md px-1.5 py-0.5 md:py-1 flex items-center gap-2 md:gap-5">
+              <Link to="/" className="text-2xl duration-150 hover:text-amber-400 mt-1">
+                <IoMdHeartEmpty />
+              </Link>
+              <Link to="/" className="text-2xl duration-150 hover:text-amber-400">
+                <LiaShoppingBagSolid />
+              </Link>
+            </div>
           </div>
         </div>
       </nav>

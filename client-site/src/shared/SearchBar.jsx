@@ -5,7 +5,7 @@ const SearchBar = () => {
   const [query, setQuery] = useState("");
   return (
     <>
-      <div className="search-bar max-w-[280px] md:min-w-[400px] bg-white border-amber-400 rounded px-4 flex justify-between items-center gap-1.5 border">
+      <div className="search-bar max-w-[270px] md:min-w-[400px] bg-white border-amber-400 rounded px-4 flex justify-between items-center md:gap-1.5 border">
           <input 
             type="text"
             placeholder="Search your products"
