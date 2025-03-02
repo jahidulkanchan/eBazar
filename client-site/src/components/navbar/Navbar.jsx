@@ -114,7 +114,7 @@ const Navbar = () => {
                 setIsOpen(false)
               }}
               className={`${
-                isHidden ? "" : "text-amber-400"
+                isHidden ? "" : "text-amber-300"
               } bar-icon cursor-pointer text-xl`}
             >
               <FaBarsStaggered />
