@@ -1,8 +1,10 @@
-import React from 'react';
 import BannerImage from '../../assets/Banner.png'
 import offerImg from '../../assets/offer-top.avif'
 import offerImg1 from '../../assets/offer-top1.avif'
+import { useAuth } from '../../hooks/useAuth';
 const Banner = () => {
+  const {name} = useAuth();
+  console.log(name);
   return (
     <>
       <section>

@@ -11,9 +11,7 @@ import { MdPhone } from "react-icons/md";
 const Navbar = () => {
   const [isHidden, setIsHidden] = useState(true);
   const [isOpen, setIsOpen] = useState(false);
-  const [show, setShow] = useState(true);
-
-  console.log(isHidden);      
+  const [show, setShow] = useState(true);   
 
   let lastScrollY = 0;
   useEffect(() => {
