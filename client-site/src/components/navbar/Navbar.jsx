@@ -131,7 +131,7 @@ const Navbar = () => {
           </div>
         </div>
         {/* ============ sub navbar =========== */}
-        <div className="bg-amber-400">
+        <div className="bg-gradient-to-r from-[#FEC013] to-amber-400">
           <div className="min-h-[50px] container mx-auto px-1.5 md:px-5 flex justify-between items-center">
             <div className="hidden md:flex bg-white px-3 py-1 rounded-sm font-medium items-center gap-0.5 md:min-w-[70px]"><MdPhone className="text-xl mt-0.5" /><span>+880 234 43543</span></div>
             <SearchBar />
