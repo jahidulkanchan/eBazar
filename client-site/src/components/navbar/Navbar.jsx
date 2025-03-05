@@ -7,8 +7,10 @@ import { RxCross2 } from "react-icons/rx";
 import { LiaShoppingBagSolid } from "react-icons/lia";
 import { IoMdHeartEmpty } from "react-icons/io";
 import { MdPhone } from "react-icons/md";
+import { useAuth } from "../../hooks/useAuth";
 
 const Navbar = () => {
+  const {user,signOutUser} = useAuth()
   const [isHidden, setIsHidden] = useState(true);
   const [isOpen, setIsOpen] = useState(false);
   const [show, setShow] = useState(true);   
@@ -80,14 +82,17 @@ const Navbar = () => {
               <Link to="https://web.whatsapp.com" className="text-2xl text-green-400 transition-transform duration-500 hover:rotate-y-180">
                 <FaWhatsapp />
               </Link>
+            {user? <button onClick={signOutUser} className="px-3
+            relative bg-white group cursor-pointer overflow-hidden rounded flex items-center gap-1.5 border-amber-400 py-1 border">Sign Out</button> : 
             <Link
-              to="/signin"
-              className="px-3
-              relative bg-white group overflow-hidden rounded flex items-center gap-1.5 border-amber-400 py-1 border"
-            > 
-              <span className="absolute w-full h-full left-0 top-0 scale-0 group-hover:scale-100 duration-200 bg-[#fcfcfc] -z-0"></span>
-              <FaUser className="text-amber-400 z-[2]" /> <span className="z-[2]">Sign In</span>
-            </Link>
+            to="/signin"
+            className="px-3
+            relative bg-white group overflow-hidden rounded flex items-center gap-1.5 border-amber-400 py-1 border"
+          > 
+            <span className="absolute w-full h-full left-0 top-0 scale-0 group-hover:scale-100 duration-200 bg-[#fcfcfc] -z-0"></span>
+            <FaUser className="text-amber-400 z-[2]" /> <span className="z-[2]">Sign In</span>
+          </Link>
+            }
           </div>
           <div className="flex md:hidden items-center gap-4">
           <Link to="https://web.whatsapp.com" className="text-2xl text-green-400 transition-transform duration-500 hover:rotate-y-180">

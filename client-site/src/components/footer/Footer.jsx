@@ -2,14 +2,14 @@ import { Link } from 'react-router-dom';
 import footerLogo from '/logo.png'
 import paymentMethods from '../../assets/payment-methods.png'
 import { CiLocationOn } from 'react-icons/ci';
-import { FaPhone, FaRegAddressCard } from 'react-icons/fa';
+import { FaRegAddressCard } from 'react-icons/fa';
 import { HiPhone } from 'react-icons/hi';
 import { BsEnvelope } from 'react-icons/bs';
 const Footer = () => {
   return (
     <>
-      <footer className='py-10 border-t border-amber-400 bg-slate-50'>
-        <div className='container mx-auto px-2 md:px-5 grid grid-cols-2 md:grid-cols-4 justify-center gap-8'>
+      <footer className='py-5 md:py-10 border-t border-amber-400 bg-slate-50'>
+        <div className='container mx-auto px-2 md:px-5 grid grid-cols-2 md:grid-cols-4 justify-center md:gap-8'>
           <div>
             <Link to='/'>
             <img className='logo w-[80px] md:w-[100px]' src={footerLogo} alt="Footer-logo" /></Link>
@@ -39,7 +39,7 @@ const Footer = () => {
             <ul>
               <li><Link className='flex gap-1.5 items-center' to='/'><CiLocationOn /> Dhaka,Bangladesh</Link></li>
               <li><Link className='flex gap-1.5 items-center' to='/'><HiPhone /> +088 0346 9273</Link></li>
-              <li><Link className='flex gap-1.5 items-center' to='/'><BsEnvelope  />ebazarsupport@gmail.com</Link></li>
+              <li><Link className='flex gap-1.5 items-center' to='/'><BsEnvelope  />ebazar@gmail.com</Link></li>
               <li><Link className='flex gap-1.5 items-center' to='/'><FaRegAddressCard /> Road-2355 , Shakail Shen</Link></li> 
             </ul>
           </div>
