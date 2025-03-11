@@ -32,9 +32,6 @@ const productSchema = new mongoose.Schema(
       required: false,
       default: '', // Default to empty string if not provided
     },
-  },
-  {
-    timestamps: true, // Automatically add createdAt and updatedAt fields
   }
 );
 
