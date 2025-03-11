@@ -9,8 +9,10 @@ import { IoMdHeartEmpty } from "react-icons/io";
 import { MdOutlineLogout, MdPhone } from "react-icons/md";
 import { useAuth } from "../../hooks/useAuth";
 import { HiLogout } from "react-icons/hi";
+import { axiosPublic } from "../../hooks/useAxiosPublic";
 
 const Navbar = () => {
+  const [users, setUsers] = useState([]);
   const {user,signOutUser} = useAuth()
   const [isHidden, setIsHidden] = useState(true);
   const [isOpen, setIsOpen] = useState(false);
@@ -28,6 +30,18 @@ const Navbar = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  useEffect(() => {
+    const fetchUsers = async () => {
+      try {
+        const response = await axiosPublic.get("/users");
+        setUsers(response.data);
+      } catch (error) {
+        console.error("Error fetching users:", error);
+      }
+    };
+    fetchUsers();
+  }, []);
+  const authInfo = users.find(auth=> auth?.email === user?.email)
   return (
     <>
       <nav
@@ -117,7 +131,9 @@ const Navbar = () => {
               <ul className="bg-white cursor-auto border-amber-400 rounded-b-md border-b-2 py-2 ps-2">
                 {user? <>
                   <li><Link to="/profile">Profile</Link></li>
-                  <li><Link to="/dashboard">Dashboard</Link></li>
+                  {authInfo?.role === 'admin' &&
+                    <li><Link to="/dashboard">Dashboard</Link></li>
+                  }
                   <li onClick={signOutUser} className="flex cursor-pointer hover:text-amber-400 duration-100 gap-1.5 items-center">Sign Out <HiLogout /> </li>
                 </> :
                 <>
