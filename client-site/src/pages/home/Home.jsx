@@ -6,7 +6,7 @@ import Banner from './Banner';
 const Home = () => {
   return (
     <>
-      <section className='min-h-[1300px]'>
+      <section>
         <Banner/>
       </section>
     </>

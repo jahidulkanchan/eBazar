@@ -6,8 +6,9 @@ import SearchBar from "../../shared/SearchBar";
 import { RxCross2 } from "react-icons/rx";
 import { LiaShoppingBagSolid } from "react-icons/lia";
 import { IoMdHeartEmpty } from "react-icons/io";
-import { MdPhone } from "react-icons/md";
+import { MdOutlineLogout, MdPhone } from "react-icons/md";
 import { useAuth } from "../../hooks/useAuth";
+import { HiLogout } from "react-icons/hi";
 
 const Navbar = () => {
   const {user,signOutUser} = useAuth()
@@ -114,8 +115,15 @@ const Navbar = () => {
               } absolute -left-[40px] py-3 min-w-[100px]`}
             >
               <ul className="bg-white cursor-auto border-amber-400 rounded-b-md border-b-2 py-2 ps-2">
-                <li><Link to="/signin">Sign In</Link></li>
-                <li><Link to="/signup">Sign Up</Link></li>
+                {user? <>
+                  <li><Link to="/profile">Profile</Link></li>
+                  <li><Link to="/dashboard">Dashboard</Link></li>
+                  <li onClick={signOutUser} className="flex cursor-pointer hover:text-amber-400 duration-100 gap-1.5 items-center">Sign Out <HiLogout /> </li>
+                </> :
+                <>
+                  <li><Link to="/signin">Sign In</Link></li>
+                  <li><Link to="/signup">Sign Up</Link></li>
+                </>}
               </ul>
             </div>
           </div>
@@ -135,7 +143,7 @@ const Navbar = () => {
         </div>
         {/* ============ sub navbar =========== */}
         <div className="bg-gradient-to-r from-[#FEC013] to-amber-400">
-          <div className="min-h-[50px] container mx-auto px-1.5 md:px-5 flex justify-between items-center">
+          <div className="min-h-[50px] container mx-auto md:px-5 flex justify-center gap-4 md:justify-between items-center">
             <div className="hidden md:flex bg-white px-3 py-1 rounded-sm font-medium items-center gap-0.5 md:min-w-[70px]"><MdPhone className="text-xl mt-0.5" /><span>+880 234 43543</span></div>
             <SearchBar />
             <div className="shopping-info bg-white rounded-t-md px-1.5 py-0.5 md:py-1 flex items-center gap-2 md:gap-5">
