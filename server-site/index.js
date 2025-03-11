@@ -3,6 +3,7 @@ const dotenv = require("dotenv");
 const cors = require("cors");
 const connectDB = require('./config/db');
 const productRoute = require('./routes/productRoute');
+const usersRoute = require('./routes/usersRoute')
 dotenv.config();
 
 
@@ -18,8 +19,11 @@ app.use(cors());
 connectDB()
 
 
-// Handle Product Routes 
+// Handle Product Routes ================
 app.use('/products', productRoute);  
+
+// Handle Users =========================
+app.use('/users', usersRoute); 
 
 
 app.get('/', async(req,res)=>{

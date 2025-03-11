@@ -1,6 +1,8 @@
 import React from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../../hooks/useAuth";
+import axios from "axios";
+import { axiosPublic } from "../../hooks/useAxiosPublic";
 
 const SignUp = () => {
   const navigate = useNavigate()
@@ -18,6 +20,14 @@ const SignUp = () => {
     signUpUser(email, password)
       .then(() => {
         console.log("User created successfully");
+        const userInfo = {
+          name,
+          email,
+          role: 'customer'
+        }
+        axiosPublic.post('/users', userInfo)
+        .then(()=> console.log('post successfull'))
+        .catch((e)=>console.log(e))
         e.target.reset();
         navigate('/')
       })

@@ -2,19 +2,19 @@ const express = require('express');
 const router = express.Router();
 const productController = require('../controllers/productController');
 
-// পণ্য তালিকা দেখানোর রুট
+// Get All Products ============================
 router.get('/', productController.getAllProducts);
 
-// একক পণ্য দেখানোর রুট
+// Get Single Product ==========================
 router.get('/:id', productController.getProductById);
 
-// পণ্য তৈরি করার রুট
+// Post Single Product =========================
 router.post('/', productController.createProduct);
 
-// পণ্য আপডেট করার রুট
+// Update Single Product =======================
 router.put('/:id', productController.updateProduct);
 
-// পণ্য মুছার রুট
+// Delete Single Product =======================
 router.delete('/:id', productController.deleteProduct);
 
 module.exports = router;
