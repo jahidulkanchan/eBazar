@@ -25,12 +25,12 @@ const productSchema = new mongoose.Schema(
     stock: {
       type: Number,
       required: true,
-      min: 0, // Ensure stock is not negative
+      min: 0,
     },
     imageUrl: {
       type: String,
       required: false,
-      default: '', // Default to empty string if not provided
+      default: '',
     },
   }
 );
